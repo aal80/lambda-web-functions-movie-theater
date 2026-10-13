@@ -23,4 +23,4 @@ destroy:
 	aws lambda-web wait web-function-deleted --function-name $(NAME)
 
 dev:
-	cd src && nodemon
+	cd src && npm i && nodemon
