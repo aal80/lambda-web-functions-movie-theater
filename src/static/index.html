@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lambda Web Functions Movie Theater</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/script.js" defer></script>
+</head>
+
+<body class="lobby">
+  <button id="theme-toggle" class="theme-toggle" type="button"></button>
+  <header class="marquee">
+    <img class="logo" src="/static/lambda.svg" alt="AWS Lambda logo">
+    <h1>AWS Lambda Web Functions Movie Theater</h1>
+    <img class="logo" src="/static/lambda.svg" alt="AWS Lambda logo">
+  </header>
+
+  <p class="intro">
+    <a href="https://docs.aws.amazon.com/lambda/latest/dg/web-functions.html" target="_blank">AWS Lambda Web Functions
+    </a>run ordinary Node.js web servers on Lambda. This movie theater is a plain
+    Express.js app to show off Lambda Web Function <strong>response streaming</strong>. 
+    Every movie is a sequence of ASCII frames that the server sends one over a long-lived HTTP response. 
+    Check out the movies in your desktop browser or even your favorite console terminal. 
+  </p>
+
+  <h2 class="now-showing">Now Showing</h2>
+
+  <main class="posters">
+    <div class="showing">
+      <a class="poster poster--starwars" href="/starwars">
+        <img class="poster-art" src="https://upload.wikimedia.org/wikipedia/en/f/f9/Death_star1.png" alt="Death Star"
+          referrerpolicy="no-referrer">
+        <div class="poster-text">
+          <h3>Star Wars, Episode IV</h3>
+          <p class="tagline">A galaxy, rendered one character at a time.</p>
+          <p class="details">ASCII feature &middot; about 13 min</p>
+        </div>
+      </a>
+      <code class="curl" data-movie="starwars">curl -N /starwars</code>
+    </div>
+
+    <div class="showing">
+      <a class="poster poster--rickrolling" href="/rickrolling">
+        <img class="poster-art"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFlLqC1ye4XRXLUm8S0Ft5tQdapWZq-921R91KsUr2WQ&amp;s=10"
+          alt="Rickrolling" referrerpolicy="no-referrer">
+        <div class="poster-text">
+          <h3>Rickrolling</h3>
+          <p class="tagline">You clicked it. There is no going back.</p>
+          <p class="details">ASCII short &middot; about 25 sec</p>
+        </div>
+      </a>
+      <code class="curl" data-movie="rickrolling">curl -N /rickrolling</code>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="https://github.com/aal80/lambda-web-functions-movie-theater" target="_blank">Source code on GitHub</a>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+body {
+  background: #000;
+  color: #ddd;
+  font-family: monospace;
+}
+
+a {
+  color: #ddd;
+}
+
+/* Player page: the screen sits in the middle of a dark auditorium */
+
+.player {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+#screen {
+  margin: 0;
+  min-width: 70ch;
+  min-height: 13lh;
+  padding: 24px 32px;
+  border: 8px solid #b8860b;
+  outline: 2px solid #ffd76a;
+  border-radius: 6px;
+  background: #050505;
+  box-shadow: 0 0 40px #ffd76a33;
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  padding: 6px 12px;
+  border: 1px solid #b8860b;
+  border-radius: 4px;
+  background: #1a1a1a;
+  color: #ddd;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* Light theme, toggled by the button in the top right corner */
+
+body.light {
+  background: #f3efe4;
+  color: #222;
+}
+
+body.light a {
+  color: #222;
+}
+
+.player.light #screen {
+  background: #fffdf6;
+  color: #111;
+  box-shadow: 0 0 40px #b8860b33;
+}
+
+body.light .theme-toggle {
+  background: #fff;
+  color: #222;
+}
+
+/* Landing page: theater lobby */
+
+.lobby {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 56px 24px 24px; /* room for the theme toggle above the marquee */
+  background: radial-gradient(ellipse at top, #3a0d12 0%, #000 70%);
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.marquee {
+  border: 8px dotted #ffd76a;
+  border-radius: 12px;
+  background: #1a0508;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  box-shadow: 0 0 24px #ffb84d88, inset 0 0 24px #ffb84d44;
+  animation: bulbs 1.2s steps(2) infinite;
+}
+
+.marquee .logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+}
+
+.marquee h1 {
+  margin: 0;
+  color: #ffe9a8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px #ffb84d;
+}
+
+@keyframes bulbs {
+  50% { border-color: #fff3c4; }
+}
+
+.intro {
+  line-height: 1.6;
+  margin: 28px 0;
+}
+
+
+.now-showing {
+  text-align: center;
+  color: #ffd76a;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.posters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.showing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 224px; /* poster width including its border */
+}
+
+.curl {
+  padding: 3px 8px;
+  background: #222;
+  border-radius: 4px;
+  color: #9fe870;
+  font-size: 11px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  user-select: all;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.curl:hover {
+  background: #333;
+}
+
+.curl.copied {
+  background: #2f5d1f;
+  color: #fff;
+}
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  aspect-ratio: 2 / 3;
+  border: 7px solid #b8860b;
+  outline: 2px solid #ffd76a;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 10px 30px #000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poster:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 0 30px #ffd76a88;
+}
+
+.poster-art {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+.poster-text {
+  padding: 10px;
+  text-align: center;
+  background: #000;
+}
+
+.poster-text h3 {
+  margin: 0 0 4px;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-style: italic;
+}
+
+.details {
+  margin: 0;
+  font-size: 9px;
+  color: #aaa;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.poster--starwars h3 {
+  color: #ffe81f;
+}
+
+.poster--rickrolling h3 {
+  color: #ff7ad9;
+  text-shadow: 0 0 8px #ff3dcf;
+}
+
+.footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid #ffd76a33;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #ffd76a;
+}
+
+/* Lobby light theme: the posters keep their look */
+
+.lobby.light {
+  background: radial-gradient(ellipse at top, #f7dcc0 0%, #f3efe4 70%);
+}
+
+.lobby.light .marquee {
+  background: #fffaf0;
+  border-color: #d4a017;
+  box-shadow: 0 0 24px #d4a01755, inset 0 0 24px #ffd76a33;
+  animation-name: bulbs-light;
+}
+
+@keyframes bulbs-light {
+  50% { border-color: #f0c040; }
+}
+
+.lobby.light .marquee h1 {
+  color: #6b3f00;
+  text-shadow: 0 0 6px #ffd76a;
+}
+
+.lobby.light .poster {
+  color: #fff;
+}
+
+.lobby.light .now-showing,
+.lobby.light .footer a {
+  color: #8a5a00;
+}
+
+.lobby.light .footer {
+  border-top-color: #b8860b55;
+}
